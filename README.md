@@ -1,10 +1,12 @@
 ## Binance Backtesting Data
 
-## Start
+## Get candles from binance
 
-`node app.js 15m`
+`node app.js <INTERVAL> <SYMBOL>`
 
-## Other Intervals
+`node app.js 15m BTCUSDT`
+
+## List of Intervals:
 
 ```
 1m
@@ -24,7 +26,11 @@
 1M
 ```
 
-## Note!
+## List of symbols
+
+`https://api.binance.com/api/v1/exchangeInfo`
+
+## Note
 
 ### _remove the comma!!_
 
