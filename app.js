@@ -10,11 +10,14 @@ async function start() {
     // start now and work backwords
     let endTime = Date.now()
     try {
-        // continue until there's an error
+        // continue until there's an error | !data
         while (true) {
             // https://api.binance.com/api/v1/klines?symbol=BTCUSDT&interval=15m&limit=1000&endTime=1531679400000
             const url = `https://api.binance.com/api/v1/klines?symbol=${symbol}&interval=${interval}&limit=1000&endTime=${endTime}`
             const data = await axios.get(url).then(response => response.data)
+            if (data.legnth === 0) {
+                return
+            }
             // append data
             fs.appendFileSync('data.json', ',' + JSON.stringify(data, null, 2).slice(1, -1))
             // update endTime
