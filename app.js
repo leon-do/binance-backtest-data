@@ -10,18 +10,15 @@ async function start() {
     // start now and work backwords
     let endTime = Date.now()
     try {
-        // continue until there's an error | !data
+        // continue until there's an error
         while (true) {
             // https://api.binance.com/api/v1/klines?symbol=BTCUSDT&interval=15m&limit=1000&endTime=1531679400000
             const url = `https://api.binance.com/api/v1/klines?symbol=${symbol}&interval=${interval}&limit=1000&endTime=${endTime}`
             const data = await axios.get(url).then(response => response.data)
-            if (data.legnth === 0) {
-                throw 'my-tickt-out-of-hell'
-            }
             // append data
             fs.appendFileSync('data.json', ',' + JSON.stringify(data, null, 2).slice(1, -1))
             // update endTime
-            endTime = data[0][0]
+            endTime = data[0][0] - 1
             console.log(endTime)
             // give binance a 5 second break
             await delay(5000)
@@ -29,7 +26,7 @@ async function start() {
     } catch (e) {
         console.log(e)
         // complinish the array ]
-        fs.appendFileSync('data.json', ']')
+        return fs.appendFileSync('data.json', ']')
     }
 }
 
