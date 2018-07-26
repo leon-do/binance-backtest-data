@@ -1,0 +1,23 @@
+{
+  "name": "binance-backtesting-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leon-do/binance-backtesting-data.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leon-do/binance-backtesting-data/issues"
+  },
+  "homepage": "https://github.com/leon-do/binance-backtesting-data#readme"
+}
